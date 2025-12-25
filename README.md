@@ -19,6 +19,7 @@ Fetches product listings from an API and renders dynamic pages with filtering.
 Run locally:
 
 npm install
+
 npm start
 
 ---
@@ -34,6 +35,7 @@ Tech: React 18, Redux Toolkit, Tailwind CSS, React Router v6, Stripe
 Run locally:
 
 npm install
+
 npm start
 
 ---
@@ -49,4 +51,5 @@ Tech: React 18, React Router v5, Formik & Yup, Sass, React Helmet
 Run locally:
 
 npm install
+
 npm start
