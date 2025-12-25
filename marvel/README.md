@@ -82,7 +82,9 @@ https://developer.marvel.com
 Install dependencies:
 
 bash
+
 npm install
+
 npm start
 
 ---

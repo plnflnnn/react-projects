@@ -45,4 +45,5 @@ The app features **product categories**, **product listing pages**, and a **Stri
 ## ▶️ Running Locally
 
 npm install
+
 npm start

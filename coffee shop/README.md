@@ -36,4 +36,5 @@ A simple **React + Redux** frontend application that fetches product listings fr
 ## ▶️ Running Locally
 
 npm install
+
 npm start
