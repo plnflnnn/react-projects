@@ -1,0 +1,96 @@
+{
+  "filters": [
+    {
+      "id": "All",
+      "name": "All"
+  },
+    {
+      "id": "Brazil",
+      "name": "Brazil"
+  },
+    {
+      "id": "Kenya",
+      "name": "Kenya"
+    },
+    {
+      "id": "Columbia",
+      "name": "Columbia"
+    }
+  ],
+    "best": [
+      {
+        "id": "4",
+        "src": "solimo.png",
+        "name": "Solimo Coffee Beans 2 kg",
+        "country": "Columbia",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "10.73$"
+      },
+      {
+        "id": "5",
+        "src": "presto.png",
+        "name": "Presto Coffee Beans 3 kg",
+        "country": "Kenya",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "15.99$"
+      },
+      {
+        "id": "6",
+        "src": "aromistico.jpg",
+        "name": "AROMISTICO Coffee 2 kg",
+        "country": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "12.99$"
+      }
+    ],
+    "coffee": [
+      {
+        "id": "1",
+        "src": "solimo.png",
+        "name": "Solimo Coffee Beans 1 kg",
+        "country": "Columbia",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "6.99$"
+      },
+      {
+        "id": "2",
+        "src": "presto.png",
+        "name": "Presto Coffee Beans 1 kg",
+        "country": "Kenya",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "6.99$"
+      },
+      {
+        "id": "3",
+        "src": "aromistico.png",
+        "name": "AROMISTICO Coffee 1 kg",
+        "country": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "6.99$"
+      },
+      {
+        "id": "4",
+        "src": "solimo.png",
+        "name": "Solimo Coffee Beans 2 kg",
+        "country": "Columbia",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "10.73$"
+      },
+      {
+        "id": "5",
+        "src": "presto.png",
+        "name": "Presto Coffee Beans 3 kg",
+        "country": "Kenya",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "15.99$"
+      },
+      {
+        "id": "6",
+        "src": "aromistico.jpg",
+        "name": "AROMISTICO Coffee 2 kg",
+        "country": "Brazil",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "price": "12.99$"
+      }
+    ]
+  }
