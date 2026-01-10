@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet";
 
-import ComicsList from "../comicsList/ComicsList";
-import AppBanner from "../appBanner/AppBanner";
+import EpisodesList from "../episodesList/EpisodesList";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 const ComicsPage = () => {
@@ -10,13 +9,12 @@ const ComicsPage = () => {
             <Helmet>
                 <meta
                     name="description"
-                    content="Page with list of our comics"
+                    content="Page with list of our episodes"
                     />
-                <title>Comics page</title>
+                <title>Episodes page</title>
             </Helmet>
-            <AppBanner/>
             <ErrorBoundary>
-                <ComicsList/>
+                <EpisodesList/>
             </ErrorBoundary>
         </>
     )

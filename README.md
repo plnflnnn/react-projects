@@ -4,7 +4,7 @@ This folder contains **three React/Redux frontend projects**:
 
 1. **Coffee Shop App** – Dynamic listings with filtering
 2. **Shop App** – E-commerce with Stripe test payments
-3. **Marvel Characters App** – Explore Marvel heroes using the public API
+3. **Rick and Morty Characters App** – Explore characters and episodes using a public API
 
 ---
 
@@ -40,11 +40,13 @@ npm start
 
 ---
 
-## 🦸 Marvel Characters App
+## 🧪 Rick and Morty Characters App
 
-Explore Marvel characters via Marvel Public API with search, profile pages, and random character generator.
+Explore characters and episodes from the Rick and Morty universe using the public Rick and Morty API.
 
-### Live: marvel-x6st.onrender.com
+### 🌐 Live https://marvel-x6st.onrender.com
+
+(project migrated from Marvel API to Rick and Morty API)
 
 Tech: React 18, React Router v5, Formik & Yup, Sass, React Helmet
 

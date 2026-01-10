@@ -7,13 +7,13 @@ import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
 
-import useMarvelService from '../../services/MarvelService';
+import useRmService from '../../services/RickAndMortyService';
 import './charInfo.scss';
 
 const CharInfo = (props) => {
     const [char, setChar] = useState(null);
 
-    const {loading, error, getCharacter, clearError} = useMarvelService();
+    const {loading, error, getCharacter, clearError} = useRmService();
 
     useEffect(() => {
         updateChar()
@@ -52,44 +52,31 @@ const CharInfo = (props) => {
 
 }
 
-const View = ({char}) => {
-    const {id, name, description, thumbnail, comics} = char;
+const View = ({ char }) => {
+    const { id, name, description, gender, location,  thumbnail } = char;
 
-    let imgStyle = {'objectFit' : 'cover'};
-    if (thumbnail.indexOf('image_not_available')) {
-        imgStyle = {'objectFit' : 'contain'};
+    let imgStyle = { objectFit: 'cover' };
+    if (thumbnail?.includes('image_not_available')) {
+        imgStyle = { objectFit: 'contain' };
     }
 
-    return(
+    return (
         <>
-        <Link to={`/characters/${id}`} className="char__basics">
-            <img  src={thumbnail} alt={name} style={imgStyle}/>
-            <div>
-                <div className="char__info-name">{name}</div>
+            <Link to={`/characters/${id}`} className="char__basics">
+                <img src={thumbnail} alt={name} style={imgStyle} />
+                <div>
+                    <div className="char__info-name">{name}</div>
+                </div>
+            </Link>
+
+            <div className="char__descr">
+                {description || 'No description available'}
             </div>
-        </Link>
-        <div className="char__descr">
-            {description}
-        </div>
-        <div className="char__comics">Comics:</div>
-            <ul className="char__comics-list">
-                {comics.length > 0 ? null : 'There are no comics with this character'}
-                {
-                    comics.map((item, i) => {
-                        const comicId = item.resourceURI.match(/(\d{3,5})/gi).join('');
-                        // eslint-disable-next-line
-                        if(i > 9) return;
-                        return (
-                            <Link to={`/comics/${comicId}`} key={i} className="char__comics-item">
-                                {item.name}
-                            </Link>
-                        )
-                    })
-                }
-            </ul>
+            <div className="char__descr">Gender - {gender}</div>
+            <div className="char__descr">Location - {location}</div>
         </>
-    )
-}
+    );
+};
 
 CharInfo.propTypes = {
     charId: PropTypes.number

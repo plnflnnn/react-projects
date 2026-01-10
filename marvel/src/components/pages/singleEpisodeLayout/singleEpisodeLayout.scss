@@ -1,10 +1,10 @@
 @import '../../../style/variables.scss';
 
-.single-comic {
+.single-episode {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: 293px 550px auto;
-    column-gap: 50px;
+    grid-template-columns: 1fr auto;
+    column-gap: 20px;
     align-items: start;
     &__img {
         width: 293px;
@@ -35,6 +35,17 @@
         &:hover {
             color: $main-color;
         }
+    }
+    &__characters {
+        color: #000;
+    }
+    ul {
+        padding-left: 15px;
+        margin-top: 0;
+    }
+    li {
+        padding: 5px 0;
+        list-style-type: disc;
     }
 }
 

@@ -1,15 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import useMarvelService from '../../services/MarvelService';
+import useRmService from '../../services/RickAndMortyService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import AppBanner from "../appBanner/AppBanner";
 
 const SinglePage = ({Component, dataType}) => {
         const {id} = useParams();
         const [data, setData] = useState(null);
-        const {loading, error, getComic, getCharacter, clearError} = useMarvelService();
+        const {loading, error, getEpisode, getCharacter, clearError} = useRmService();
 
         useEffect(() => {
             updateData()
@@ -20,11 +19,12 @@ const SinglePage = ({Component, dataType}) => {
             clearError();
             // eslint-disable-next-line
             switch (dataType) {
-                case 'comic':
-                    getComic(id).then(onDataLoaded);
+                case 'episode':
+                    getEpisode(id).then(onDataLoaded);
                     break;
                 case 'character':
                     getCharacter(id).then(onDataLoaded);
+                    break;
             }
         }
 
@@ -38,7 +38,6 @@ const SinglePage = ({Component, dataType}) => {
 
         return (
             <>
-                <AppBanner/>
                 {errorMessage}
                 {spinner}
                 {content}

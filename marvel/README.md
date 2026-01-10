@@ -1,21 +1,26 @@
-# Marvel Characters App 🦸‍♂️🦸‍♀️
+# Rick and Morty Characters App 🧪🛸
 
-A React application that uses the **public Marvel API** to explore Marvel characters, view detailed character profiles, and discover random heroes.
+A React application that uses the **public Rick and Morty API** to explore characters and episodes from the Rick and Morty universe.
 
-The app demonstrates dynamic routing, API integration, and component-based UI architecture.
+The app demonstrates dynamic routing, API integration, caching, and a component-based UI architecture.
 
-### Live URL: https://marvel-x6st.onrender.com/
+### 🌐 Live URL
+
+👉 https://marvel-x6st.onrender.com/  
+_(project migrated from Marvel API to Rick and Morty API)_
 
 ---
 
 ## 🚀 Features
 
-- Browse Marvel characters
+- Browse Rick and Morty characters
 - Search characters by name
 - View detailed character profiles
-- Dynamic routing for character pages
+- Browse episodes list
+- View single episode details
+- Dynamic routing with React Router
 - Random character generator
-- Client-side rendering with React
+- Client-side data fetching
 - Responsive layout
 - SEO-friendly metadata using React Helmet
 
@@ -25,55 +30,51 @@ The app demonstrates dynamic routing, API integration, and component-based UI ar
 
 - **React 18**
 - **React Router DOM (v5)**
-- **Marvel Public API**
-- **Formik** – form handling
-- **Yup** – form validation
+- **Rick and Morty Public API**
 - **SASS (SCSS)** – styling
-- **React Helmet** – page metadata
-- **PropTypes** – type checking
+- **React Helmet** – SEO metadata
+- **PropTypes** – runtime prop validation
+- **Custom Hooks** – reusable logic (`useHttp`, API services)
 
 ---
 
 ## 🔌 API
 
-This project uses the **official Marvel Public API**:
+This project uses the **Rick and Morty Public API**:
 
-- Character list
-- Character details
-- Random character selection
+- Characters list & details
+- Episodes list & details
+- Character–episode relationships
 
-All data is fetched dynamically from the Marvel API.
+API documentation:  
+👉 https://rickandmortyapi.com/documentation
 
 ---
 
 ## 📂 Project Type
 
-Frontend React Application
+Frontend React Application  
 (API-driven, client-side rendered)
 
 This project demonstrates:
-Working with external REST APIs
-Dynamic routing
-Reusable React components
-Form handling and validation
-State management within React components
-Clean project structure
+
+- Working with external REST APIs
+- Dynamic routing and nested pages
+- Reusable UI components
+- Custom hooks for data fetching
+- Error handling & loading states
+- Basic client-side caching
+- Clean and scalable project structure
 
 ---
 
 ## 📝 Notes
 
-Portfolio & learning project
-Uses public API (no private data)
-No backend required
-API keys are stored securely via environment variables
-
----
-
-## 🔗 Useful Links
-
-Marvel API Documentation:
-https://developer.marvel.com
+- Portfolio project
+- Public API only (no authentication required)
+- No backend required
+- Migrated from Marvel API (which has been sunset)
+- Focused on clean architecture and UX
 
 ---
 
@@ -81,10 +82,6 @@ https://developer.marvel.com
 
 Install dependencies:
 
-bash
-
 npm install
 
 npm start
-
----

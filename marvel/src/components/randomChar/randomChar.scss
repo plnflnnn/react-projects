@@ -17,9 +17,7 @@
         object-fit: cover;
     }
     &__info {
-        display: grid;
-        grid-template-rows: minmax(29px, auto) 120px;
-        row-gap: 10px;
+        row-gap: 5px;
         padding-top: 3px;
     }
     &__name {
@@ -31,6 +29,8 @@
     &__descr {
         font-size: 14px;
         line-height: 18px;
+        width: 100%;
+        padding: 5px 0;
     }
     &__static {
         padding: 40px 35px;

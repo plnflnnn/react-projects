@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
-import useMarvelService from '../../services/MarvelService';
+import useRmService from '../../services/RickAndMortyService';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Spinner from '../spinner/Spinner';
 
-import './comicsList.scss';
+import './episodesList.scss';
 
-const ComicsList = () => {
-    const [comicsList, setComicsList] = useState([]);
+const EpisodesList = () => {
+    const [episodesList, setEpisodesList] = useState([]);
     const [newItemLoading, setnewItemLoading] = useState(false);
-    const [comicsEnded, setComicsEnded] = useState(false);
+    const [episodesEnded, setEpisodesEnded] = useState(false);
     const [offset, setOffset] = useState(0);
 
-    const {loading, error, getAllComics} = useMarvelService();
+    const {loading, error, getAllEpisodes} = useRmService();
 
     useEffect(() => {
         onRequest(offset, true);
@@ -22,56 +22,55 @@ const ComicsList = () => {
 
     const onRequest = (offset, initial) => {
         initial ? setnewItemLoading(false) : setnewItemLoading(true);
-        getAllComics(offset)
-        .then(onComicsListLoaded)
+        getAllEpisodes(offset)
+        .then(onEpisodesListLoaded)
     }
 
-    const onComicsListLoaded = (newComicsList) => {
+    const onEpisodesListLoaded = (newEpisodesList) => {
         let ended = false;
-        if(newComicsList.length < 8) {
+        if(newEpisodesList.length < 20) {
             ended = true;
         }
 
-        setComicsList([...comicsList, ...newComicsList]);
+        setEpisodesList([...episodesList, ...newEpisodesList]);
         setnewItemLoading(false);
-        setOffset(offset + 8);
-        setComicsEnded(ended);
+        setOffset(offset + 20);
+        setEpisodesEnded(ended);
     }
 
-    const renderComics = (arr) => {
+    const renderEpisodes = (arr) => {
         const items = arr.map((item, i) => {
-
             return (
-                <li className="comics__item" key={i}>
-                <Link to={`/comics/${item.id}`}>
-                    <img src={item.thumbnail} alt={item.name} className="comics__item-img"/>
-                    <div className="comics__item-name">{item.title}</div>
-                    <div className="comics__item-price">{item.price}</div>
+                <li className="episodes__item" key={item.id}>
+                <Link to={`/episodes/${item.id}`}>
+                    <div className="episodes__item-name">{item.name}</div>
+                    <div className="episodes__item-txt">Episode: {item.episode}</div>
+                    <div className="episodes__item-txt">Air Date: {item.airDate}</div>
                 </Link>
             </li>
             )
         })
         return (
-            <ul className="comics__grid">
+            <ul className="episodes__grid">
                 {items}
             </ul>
         )
     }
 
-    const items = renderComics(comicsList);
+    const items = renderEpisodes(episodesList);
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading && !newItemLoading ? <Spinner/> : null;
 
 
     return (
-        <div className="comics__list">
+        <div className="episodes__list">
             {errorMessage}
             {spinner}
             {items}
             <button 
                 className="button button__main button__long"
                 disabled={newItemLoading}
-                style={{'display': comicsEnded ? 'none' : 'block'}}
+                style={{'display': episodesEnded ? 'none' : 'block'}}
                 onClick={() => onRequest(offset)}>
                 <div className="inner">load more</div>
             </button>
@@ -80,4 +79,4 @@ const ComicsList = () => {
 }
 
 
-export default ComicsList;
+export default EpisodesList;

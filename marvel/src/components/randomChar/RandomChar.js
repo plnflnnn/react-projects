@@ -2,24 +2,22 @@ import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import useMarvelService from '../../services/MarvelService';
+import useRmService from '../../services/RickAndMortyService';
 
 import './randomChar.scss';
-import mjolnir from '../../resources/img/mjolnir.png';
-
 const RandomChar = () => {
 
     const [char, setChar] = useState(null);
-    const {loading, error, getCharacter, clearError} = useMarvelService();
+    const {loading, error, getRandomCharacter, clearError} = useRmService();
 
     useEffect(() => {
         updateChar();
-        // const timerId = setInterval(updateChar, 60000);
+        const timerId = setInterval(updateChar, 60000);
 
         return () => {
-            // clearInterval(timerId);
+            clearInterval(timerId);
         }
-        // eslint-disable-next-line 
+        // eslint-disable-next-line
     }, [])
 
     const onCharLoaded = (char) => {
@@ -28,10 +26,8 @@ const RandomChar = () => {
 
     const updateChar = () => {
         clearError();
-        const id = Math.floor(Math.random() * (1011400 - 1011000)) + 1011000;
-        getCharacter(id)
-            .then(onCharLoaded);
-    }
+        getRandomCharacter().then(onCharLoaded);
+    };
 
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading ? <Spinner/> : null;
@@ -53,17 +49,16 @@ const RandomChar = () => {
                 <button onClick={updateChar} className="button button__main">
                     <div className="inner">try it</div>
                 </button>
-                <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>
         </div>
     )
 }
 
 const View = ({char}) => {
-    const {id, name, description, thumbnail} = char;
-    let imgStyle = {'objectFit' : 'cover'};
-    if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
-        imgStyle = {'objectFit' : 'contain'};
+    const {id, name, gender , description, thumbnail} = char;
+    let imgStyle = { objectFit: 'cover' };
+    if (thumbnail?.includes('image_not_available')) {
+        imgStyle = { objectFit: 'contain' };
     }
 
     return (
@@ -74,6 +69,7 @@ const View = ({char}) => {
                 <p className="randomchar__descr">
                     {description}
                 </p>
+                <p className="randomchar__descr">Gender - {gender}</p>
             </div>
         </Link>
     )
