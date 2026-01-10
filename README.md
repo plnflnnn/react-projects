@@ -12,7 +12,7 @@ This folder contains **three React/Redux frontend projects**:
 
 Fetches product listings from an API and renders dynamic pages with filtering.
 
-### Live: coffee-2nd8.onrender.com
+### 🌐 Live: coffee-2nd8.onrender.com
 
 **Tech:** React 18, Redux Toolkit, React Router v6, Sass, React Helmet
 
@@ -28,7 +28,7 @@ npm start
 
 E-commerce frontend with product categories, listing pages, and Stripe test payments.
 
-### Live: grocery-3tr1.onrender.com
+### 🌐 Live: grocery-3tr1.onrender.com
 
 Tech: React 18, Redux Toolkit, Tailwind CSS, React Router v6, Stripe
 
