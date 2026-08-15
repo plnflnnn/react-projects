@@ -29,11 +29,11 @@ const App = () => {
                             <EpisodesPage/>
                         </Route>
                         <Route exact path="/episodes/:id">
-                                <SinglePage Component={SingleEpisodeLayout} dataType='episode'/>
-                            </Route>
-                            <Route exact path="/characters/:id">
-                                <SinglePage Component={SingleCharacterLayout} dataType='character'/>
-                            </Route>
+                            <SinglePage Component={SingleEpisodeLayout} dataType='episode'/>
+                        </Route>
+                        <Route exact path="/characters/:id">
+                            <SinglePage Component={SingleCharacterLayout} dataType='character'/>
+                        </Route>
                         <Route path="*">
                             <Page404/>
                         </Route>

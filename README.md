@@ -44,7 +44,7 @@ npm start
 
 Explore characters and episodes from the Rick and Morty universe using the public Rick and Morty API.
 
-### 🌐 Live https://marvel-x6st.onrender.com
+### 🌐 Live marvel-x6st.onrender.com
 
 (project migrated from Marvel API to Rick and Morty API)
 
