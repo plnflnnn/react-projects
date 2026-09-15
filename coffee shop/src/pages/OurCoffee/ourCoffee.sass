@@ -1,0 +1,40 @@
+.our_coffee
+    &__header
+        background: url('./img/our_coffee.png') center (center/cover) no-repeat
+        padding-bottom: 85px
+        &_title
+            margin-top: 60px
+            margin-bottom: 0px
+            color: #FFF
+            font-size: 40px
+            font-weight: 700
+
+.about_our_beans
+    &__wrapper
+        display: grid
+        grid-template-columns: 272px 346px
+        grid-template-rows: 355px 
+        column-gap: 70px
+        place-content: center
+        margin-top: 70px
+        margin-bottom: 60px
+    &__img
+        width: 272px 
+        height: 355px
+        img
+            display: block
+    &__title
+        color: #000
+        font-size: 24px
+        font-weight: 400
+        padding-top: 10px
+    &__description-text
+        padding-top: 10px
+
+@media (max-width: 768px)
+    .about_our_beans
+        &__img
+            display: none
+        &__wrapper 
+            grid-template-columns: 346px
+            margin-bottom: 0px

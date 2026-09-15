@@ -1,21 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import goods from '../components/pages/commonComponents/Goods/goodsSlice';
-import filters from '../components/filter/filterSlice';
-import bestGoods from '../components/pages/MainPage/bestGoodsSlice';
-
-
-const stringMiddleware = () => (next) => (action) => {
-    if (typeof action === 'string') {
-        return next({
-            type: action
-        })
-    }
-    return next(action)
-};
+import { configureStore } from '@reduxjs/toolkit';
+import goods from './goodsSlice';
+import filters from './filtersSlice';
+import bestGoods from './bestGoodsSlice';
 
 const store = configureStore({
-    reducer: {goods, filters, bestGoods},
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(stringMiddleware),
+    reducer: { goods, filters, bestGoods },
     devTools: process.env.NODE_ENV !== 'production'
 });
 

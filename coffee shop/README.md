@@ -1,40 +1,19 @@
-# ☕ Coffee Shop App (React + Redux)
+# Coffee Shop
 
-A simple **React + Redux** frontend application that fetches product listings from an API and renders **dynamic list pages**.
+Coffee house website with a catalog, country and search filters, and product pages. React, Redux Toolkit, React Router.
 
-### Live URL: https://coffee-2nd8.onrender.com/
+## Getting started
 
----
-
-## 🚀 Features
-
-- Display product listings fetched from an API
-- Dynamic category/list pages
-- Filtering functionality for products
-- Redux state management
-- Routing with React Router v6
-- Responsive UI
-- Smooth transitions with React Transition Group
-- Uses **Sass** for styling
-
----
-
-## 🛠 Tech Stack
-
-- **React 18**
-- **Redux Toolkit**
-- **React Redux**
-- **React Router DOM v6**
-- **React Transition Group**
-- **Sass**
-- **React Helmet**
-- **JSON Server** (for local API testing)
-- **Classnames** (for conditional styling)
-
----
-
-## ▶️ Running Locally
-
+```bash
 npm install
-
 npm start
+```
+
+The frontend loads catalog data from `/coffee`, `/best`, and `/filters`.
+
+## Pages
+
+- `/` — home and best sellers
+- `/our_coffee` — catalog with search and country filters
+- `/for_your_pleasure` — full goods list
+- `/coffee/:coffeeId` — product details

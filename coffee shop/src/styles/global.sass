@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap')
+
+*
+    font-family: 'Merienda', cursive
+
+.container
+    margin: 0 auto
+    max-width: 1140px
+    justify-content: center
+    align-items: center
+    text-align: center
+
+.title
+    color: #000
+    font-size: 24px
+    font-weight: 400
+    padding-top: 80px
+
+.status-message
+    margin: 0 auto
+    padding-top: 40px
+
+    &_padded
+        padding-top: 100px
+
+.page-not-found
+    min-height: 400px
+
+    .for_your_pleasure__header_title
+        margin-top: 120px
+
+    &__link
+        display: block
+        width: 160px
+        height: 30px
+        margin: 20px auto 0
+        border-radius: 3px
+        border: 1px solid #FFF
+        color: #FFF
+        font-size: 14px
+        font-weight: 700
+        line-height: 32px
+        text-decoration: none
+        text-align: center
+
+.big_divider
+    margin: 0 auto
+    background: #000
+    height: 1px
+    width: 240px
+    margin-bottom: 20px
+
+@media (max-width: 1200px)
+    .nav
+        margin-left: 50px
+    .container
+        max-width: 960px
+
+@media (max-width: 992px)
+    .container
+        max-width: 720px
+
+@media (max-width: 768px)
+    .container
+        max-width: 540px
+
+@media (max-width: 576px)
+    .container
+        max-width: 100%
+    .nav_links
+        li
+            margin-right: 20px
+    .footer
+        &_nav_links
+            li
+                margin-right: 20px

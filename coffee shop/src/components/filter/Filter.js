@@ -1,81 +1,79 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import store from '../../store';
-
-import { filtersChanged, fetchFilters, selectAll } from './filterSlice';
-import Loading from '../pages/commonComponents/loading/loading';
-
-import FilterGoods from '../pages/commonComponents/Goods/FilterGoods';
-
+import { countryFilterChanged, searchQueryChanged, fetchFilters, selectAll } from '../../store/filtersSlice';
+import useFetchOnIdle from '../../hooks/useFetchOnIdle';
+import Loading from '../ui/Loading/Loading';
+import StatusMessage from '../ui/StatusMessage/StatusMessage';
+import Goods from '../goods/Goods';
 import './filters.sass';
 
 const Filter = () => {
-
-    const {filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
-    const filters = selectAll(store.getState());
+    const { filtersLoadingStatus, countryFilter, searchQuery } = useSelector((state) => state.filters);
+    const filters = useSelector(selectAll);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchFilters());
-        // eslint-disable-next-line
-    }, []);
+    useFetchOnIdle(filtersLoadingStatus, fetchFilters);
 
-    if (filtersLoadingStatus === 'loading') {
-        return <Loading></Loading>
-    } else if (filtersLoadingStatus === 'error') {
-        return <div className='container'> <h5 style={{margin: '0 auto'}}> Loading error</h5> </div>
+    if (filtersLoadingStatus === 'idle' || filtersLoadingStatus === 'loading') {
+        return <Loading />;
+    }
+
+    if (filtersLoadingStatus === 'error') {
+        return <StatusMessage>Loading error</StatusMessage>;
     }
 
     const renderFilters = (arr) => {
         if (arr.length === 0) {
-            return  <div className='container'> <h5 style={{margin: '0 auto'}}>Filters are not found</h5> </div>
+            return <StatusMessage>Filters are not found</StatusMessage>;
         }
 
-        return arr.map(({id, name}) => {
+        return arr.map(({ id, name }) => {
             const btnClass = classNames('filter_button', {
-                'filter_button active': name === activeFilter
-            })
+                active: name === countryFilter
+            });
 
-            return  <button 
-                        className={btnClass}
-                        id={id}
-                        key={name}
-                        onClick={() => dispatch(filtersChanged(name))}
-                        >{name}</button>
+            return (
+                <button
+                    type="button"
+                    className={btnClass}
+                    id={id}
+                    key={id || name}
+                    onClick={() => dispatch(countryFilterChanged(name))}
+                >
+                    {name}
+                </button>
+            );
         });
-
-
-    }
-
-    const elements = renderFilters(filters);
+    };
 
     return (
-        <>
-            <div className="filter">
-                <div className="container">
-                    <div className="seach_and_filter">
-                        <div className="search_section">
-                            <div className="looking_for">Looking for</div>
-                            <input type="text"
-                                className="search" 
-                                onChange={(event) => dispatch(filtersChanged(event.target.value.toLowerCase()))}
-                                placeholder="start typing here..."/>
-                        </div>
-            
-                        <div className="filter_section">
-                            <div className="or_filter">Or filter</div>
-                            <div className="filter_buttons">
-                                {elements}
-                            </div>
-                        </div>
+        <div className="filter">
+            <div className="container">
+                <div className="search_and_filter">
+                    <div className="search_section">
+                        <label className="looking_for" htmlFor="coffee-search">Looking for</label>
+                        <input
+                            id="coffee-search"
+                            type="text"
+                            className="search"
+                            value={searchQuery}
+                            onChange={(event) => dispatch(searchQueryChanged(event.target.value))}
+                            placeholder="start typing here..."
+                        />
                     </div>
 
-                    <FilterGoods></FilterGoods>
+                    <div className="filter_section">
+                        <div className="or_filter">Or filter</div>
+                        <div className="filter_buttons">
+                            {renderFilters(filters)}
+                        </div>
+                    </div>
                 </div>
+
+                <Goods filtered />
             </div>
-        </>
-    )
+        </div>
+    );
 };
 
 export default Filter;
